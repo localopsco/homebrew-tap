@@ -1,0 +1,43 @@
+name: Update Homebrew Formula
+
+on:
+  repository_dispatch:
+    types: [update-tap]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (e.g. 3.0.2, without 'v' prefix)"
+        required: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            VERSION="${{ github.event.client_payload.version }}"
+          else
+            VERSION="${{ github.event.inputs.version }}"
+          fi
+          # Strip leading 'v' if present
+          VERSION="${VERSION#v}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Update formula
+        run: ./scripts/update-formula.sh "${{ steps.version.outputs.version }}"
+
+      - name: Commit and push
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/ops.rb
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update ops to v${VERSION}"
+          git push
