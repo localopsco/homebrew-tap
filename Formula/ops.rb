@@ -1,7 +1,7 @@
 class Ops < Formula
   desc "LocalOps CLI - cloud native deployment platform for SaaS, BYOC, and on-prem"
   homepage "https://github.com/localopsco/lops-cli"
-  version "3.1.0"
+  version "3.2.0"
   license "MIT"
 
   livecheck do
@@ -11,25 +11,25 @@ class Ops < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/localopsco/lops-cli/releases/download/v3.1.0/ops-darwin-arm64.tar.gz"
-      sha256 "0886f641d550449b62f0c1894df5c0f0e8b409b246705eac35033b19d3fed7ca"
+      url "https://github.com/localopsco/lops-cli/releases/download/v3.2.0/ops-darwin-arm64.tar.gz"
+      sha256 "ba7e4123a331530401011933eb7323aabc2a545a9c42b4c7bd738d0bf6e2a566"
     end
 
     on_intel do
-      url "https://github.com/localopsco/lops-cli/releases/download/v3.1.0/ops-darwin-amd64.tar.gz"
-      sha256 "7b35e76887af7fea1af3191cf65e4a57c2952f23e2efee1c7419ce8abc84fc4b"
+      url "https://github.com/localopsco/lops-cli/releases/download/v3.2.0/ops-darwin-amd64.tar.gz"
+      sha256 "6ba59d2253e8da516c381b83be1387197c4147bcc6b2f0fafabbaa8f5ffd53b6"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/localopsco/lops-cli/releases/download/v3.1.0/ops-linux-arm64.tar.gz"
-      sha256 "c30848d5523732d1dd2dc568765653bfbbd29de9f77ffa6e576460e189382aa3"
+      url "https://github.com/localopsco/lops-cli/releases/download/v3.2.0/ops-linux-arm64.tar.gz"
+      sha256 "cd194e120478fe669ef19880fcf3aafba69b2d6a37939eba161c7c27288920a5"
     end
 
     on_intel do
-      url "https://github.com/localopsco/lops-cli/releases/download/v3.1.0/ops-linux-amd64.tar.gz"
-      sha256 "f790724fd99f73f080bf4d9121549e8bca504e0542141c4dc0bcb9e4a7808940"
+      url "https://github.com/localopsco/lops-cli/releases/download/v3.2.0/ops-linux-amd64.tar.gz"
+      sha256 "beac6b688f92edc9666fea206c4e651eb03ad5d828b606c9b8f3ba86dc40f8dc"
     end
   end
 
